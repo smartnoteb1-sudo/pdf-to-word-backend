@@ -41,4 +41,5 @@ def convert_pdf_to_word():
         return jsonify({"error": "Invalid file type, only PDFs allowed"}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
