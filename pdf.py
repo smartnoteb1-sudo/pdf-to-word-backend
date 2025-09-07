@@ -1,9 +1,11 @@
 from flask import Flask, request, send_file, jsonify
+from flask_cors import CORS
 from pdf2docx import Converter
 import os
 import uuid
 
 app = Flask(__name__)
+CORS(app)  # 🚨 Important: allows requests from your InfinityFree frontend
 
 @app.route('/convert', methods=['POST'])
 def convert_pdf_to_word():
